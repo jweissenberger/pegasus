@@ -295,3 +295,19 @@ def billsum_transformer(param_overrides):
           "learning_rate": 0.0001,
           "batch_size": 8,
       }, param_overrides)
+
+
+save_path = "/Users/jackweissenberger/Documents/pegasus/pegasus/data/testdata/test_pattern_1.tfrecord"
+@registry.register("test_transformer")
+def test_transformer(param_overrides):
+  return transformer_params(
+      {
+          "train_pattern": save_path,
+          "dev_pattern": save_path,
+          "test_pattern": save_path,
+          "max_input_len": 1024,
+          "max_output_len": 256,
+          "train_steps": 180000,
+          "learning_rate": 0.0001,
+          "batch_size": 8,
+      }, param_overrides)
